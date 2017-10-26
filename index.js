@@ -8,6 +8,12 @@ var app = express();
 app.listen(3000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(function(req,res,next){
+    // Allow access from other domain
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 MongoClient.connect('mongodb://127.0.0.1:27017/ThincJavascriptWorkshop', function (err, db) {
     if (err) {
