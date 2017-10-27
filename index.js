@@ -24,7 +24,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/ThincJavascriptWorkshop', functio
     console.log('Successful connect to database');
 
     app.post('/addUser', function (req, res) {
-        if (req.body.studentID === undefined || req.body.firstName === undefined || req.body.lastName === undefined, req.body.major === undefined) {
+        if (!req.body.studentID || !req.body.firstName || !req.body.lastName || !req.body.major) {
             return res.status(400).send({
                 err: 400,
                 msg: 'Bad request'
@@ -40,7 +40,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/ThincJavascriptWorkshop', functio
     });
 
     app.post('/deleteUser', function(req,res){
-        if(req.body.userID === undefined){
+        if(!req.body.userID){
             return res.status(400).send({
                 err: 400,
                 msg: 'Bad request'
