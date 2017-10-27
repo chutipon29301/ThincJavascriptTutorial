@@ -55,7 +55,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/ThincJavascriptWorkshop', functio
     app.post('/listUser', function(req,res){
         db.collection('User').find({}).toArray().then(users => {
             for(let i = 0; i < users.length; i++){
-                users[i].userID = users._id;
+                users[i].userID = users[i]._id;
                 delete users[i]._id;
             }
             res.status(200).send(users);
