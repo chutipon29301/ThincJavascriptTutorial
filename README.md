@@ -29,6 +29,7 @@ res.body = [
         "firstName": "Hello",
         "lastName": "World",
         "major": "ICE"
+        "userID": "439ahgf2409gsp984"
     },
     ...
 ]
